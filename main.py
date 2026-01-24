@@ -54,10 +54,10 @@ async def main(page: ft.Page):
             pwd = session_data["password"]
             token = session_data["token"]
 
-            show_snack(f"正在透過 Playwright 下載 {issue_id_input.value}...")
+            show_snack(f"正在下載 {issue_id_input.value}...")
 
             try:
-                # 使用 await 呼叫非同步的 Playwright 邏輯
+                # 使用 await 呼叫非同步的  邏輯
                 issue_id = issue_id_input.value
                 await export_test_steps_from_jira([issue_id], account, pwd)
                 jira_test_csv_to_import_csv(issue_id, account, token)
@@ -67,7 +67,7 @@ async def main(page: ft.Page):
             finally:
                 # 恢復按鈕狀態
                 e.control.disabled = False
-                e.control.content = ft.Text("執行 Playwright 下載", weight=ft.FontWeight.BOLD)
+                e.control.content = ft.Text("下載", weight=ft.FontWeight.BOLD)
                 page.update()
 
         page.clean()

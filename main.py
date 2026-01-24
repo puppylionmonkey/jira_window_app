@@ -33,7 +33,7 @@ async def main(page: ft.Page):
     async def go_to_downloader_page():
         issue_id_input = ft.TextField(
             label="Issue ID",
-            hint_text="例如: M3-101",
+            hint_text="例如: PBPM-23583",
             width=320,
             text_align=ft.TextAlign.CENTER,
             prefix_icon=ft.Icons.TAG

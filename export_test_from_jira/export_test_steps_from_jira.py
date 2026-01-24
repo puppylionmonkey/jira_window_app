@@ -11,7 +11,7 @@ async def export_test_steps_from_jira(test_id_list, account, password):
     # 3. 必須使用 async_playwright()
     async with async_playwright() as p:
         browser = await p.chromium.launch(
-            executable_path="D:\jira_window_app\dist\Jira下載器\_internal\ms-playwright\chromium-1200\chrome-win64/chrome.exe",
+            executable_path="D:/jira_window_app/dist/Jira下載器/_internal/ms-playwright/chromium-1200/chrome-win64/chrome.exe",
             headless=False
         )
         # browser = await p.chromium.launch(headless=False)

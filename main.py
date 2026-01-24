@@ -153,4 +153,4 @@ async def main(page: ft.Page):
 
 if __name__ == "__main__":
     # 使用 assets_dir 指定一個空資料夾，強制 PyInstaller 捕捉路徑
-    ft.app(target=main, assets_dir="assets")
+    ft.run(main, assets_dir="assets")

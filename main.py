@@ -78,16 +78,11 @@ async def main(page: ft.Page):
                 bgcolor="surfacevariant"
             ),
             ft.Column([
-                ft.Container(height=20),
-                ft.Icon(ft.Icons.FILE_DOWNLOAD_OUTLINED, color="blue400", size=80),
-                ft.Text("連線成功", size=24, weight=ft.FontWeight.BOLD),
-                ft.Text(f"登入帳號: {session_data['account']}", color="grey"),
-                ft.Divider(height=40, thickness=1),
                 issue_id_input,
                 ft.Container(height=10),
                 ft.FilledButton(
-                    content=ft.Text("執行 Playwright 下載", weight=ft.FontWeight.BOLD),
-                    icon=ft.Icons.PLAY_ARROW_ROUNDED,
+                    content=ft.Text("下載", weight=ft.FontWeight.BOLD),
+                    icon=ft.Icons.FILE_DOWNLOAD_OUTLINED,
                     width=320,
                     height=50,
                     on_click=start_download_logic  # Flet 會自動處理 async 回呼

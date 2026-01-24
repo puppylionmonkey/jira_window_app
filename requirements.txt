@@ -1,0 +1,14 @@
+requests
+playwright
+pyautogui
+pandas
+openpyxl
+Pillow  # 作圖
+lxml  # 解析html
+jira
+
+html5lib # for pd.read_html
+
+
+flet
+PyInstaller

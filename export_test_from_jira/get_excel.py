@@ -36,7 +36,7 @@ def jira_test_csv_to_import_csv(issue_id, account, jira_api_token):
     test_summary= get_test_summary_from_jira_api(issue_id, account, jira_api_token)
     story_list = get_issue_links(issue_id, account, jira_api_token)
 
-    df.at[0, 'Test Repo'] = test_id_lipped_repo_dict[issue_id]
+    df.at[0, 'Test Repo'] = test_id_lipped_repo_dict.get(issue_id, '')
     df.at[0, 'Test Summary'] = test_summary
     df.at[0, 'Issue key'] = issue_id
     df['Test type'] = 'Manual'

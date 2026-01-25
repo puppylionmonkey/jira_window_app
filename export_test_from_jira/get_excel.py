@@ -21,7 +21,7 @@ def jira_test_csv_to_import_csv(issue_id, account, jira_api_token):
     ]
 
 
-    df = pd.read_csv(f'{project_path}/export_test_from_jira/from_jira_tests/{issue_id}.csv')
+    df = pd.read_csv(f'{downloads_path}/{issue_id}.csv')
     df = df.reindex(columns=target_columns)
     df = df.astype(object)  # 強制整張表轉為 object 型別
 

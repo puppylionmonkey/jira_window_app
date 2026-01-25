@@ -105,11 +105,10 @@ async def main(page: ft.Page):
                 show_snack(f"❌ 執行出錯: {str(ex)}")
             finally:
                 # 重置狀態
-                issue_id_input.value = ""
                 issue_id_input.disabled = False
                 imported_issues.clear()
                 e.control.disabled = False
-                e.control.content = ft.Text("開始執行任務", weight=ft.FontWeight.BOLD)
+                e.control.content = ft.Text("下載", weight=ft.FontWeight.BOLD)
                 page.update()
 
         # UI 佈局

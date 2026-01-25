@@ -1,5 +1,6 @@
 import asyncio
 import sys
+from pathlib import Path
 
 # 1. 必須使用 async_api
 from playwright.async_api import async_playwright
@@ -30,9 +31,9 @@ async def export_test_steps_from_jira(test_id_list, account, password):
         # 等待網址跳轉
         await page.wait_for_url("**/jira/software/**", timeout=60000)
 
-        for test_id in test_id_list:
-            print(f"正在處理: {test_id}")
-            test_url = f'https://m3maintain.atlassian.net/browse/{test_id}'
+        for issue_id in test_id_list:
+            print(f"正在處理: {issue_id}")
+            test_url = f'https://m3maintain.atlassian.net/browse/{issue_id}'
             await page.goto(test_url)
 
             # 等待元素出現也要 await
@@ -55,12 +56,14 @@ async def export_test_steps_from_jira(test_id_list, account, password):
             async with page.expect_download(timeout=60000) as download_info:
                 await page.get_by_role("button", name="Export").click()
 
+            downloads_path = Path.home() / "Downloads"
+            # 組合完整的儲存路徑
+            final_save_path = downloads_path / f"{issue_id}.csv"
             download = await download_info.value
-            save_path = f"{project_path}/export_test_from_jira/from_jira_tests/{test_id}.csv"
 
             # 儲存檔案也要 await
-            await download.save_as(save_path)
-            print(f"檔案已儲存至: {save_path}")
+            await download.save_as(final_save_path)
+            print(f"檔案已儲存至: {final_save_path}")
 
         await browser.close()
 

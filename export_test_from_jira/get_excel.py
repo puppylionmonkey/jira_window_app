@@ -30,8 +30,6 @@ def jira_test_csv_to_import_csv(issue_id, account='', jira_api_token=''):
         'Data': 'Data',
         'Expected Result': 'Result'
     })
-    df = df.reindex(columns=target_columns)
-    print(df['Result'], 'abc3')
 
     test_summary = get_test_summary_from_jira_api(issue_id, account, jira_api_token)
     story_list = get_issue_links(issue_id, account, jira_api_token)
@@ -45,3 +43,4 @@ def jira_test_csv_to_import_csv(issue_id, account='', jira_api_token=''):
     df.to_csv(final_save_path, index=False)
 
 
+jira_test_csv_to_import_csv(issue_id='PBPM-25818')

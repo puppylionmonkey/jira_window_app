@@ -45,4 +45,3 @@ def jira_test_csv_to_import_csv(issue_id, account='', jira_api_token=''):
     df.to_csv(final_save_path, index=False)
 
 
-jira_test_csv_to_import_csv(issue_id='PBPM-25818')

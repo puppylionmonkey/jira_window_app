@@ -4,7 +4,6 @@ import pandas as pd
 
 from export_test_from_jira.get_api_jira_test import *
 from export_test_from_jira.repo import test_id_lipped_repo_dict
-from path_config import project_path
 
 
 def jira_test_csv_to_import_csv(issue_id, account='', jira_api_token=''):
@@ -43,4 +42,3 @@ def jira_test_csv_to_import_csv(issue_id, account='', jira_api_token=''):
     df.to_csv(final_save_path, index=False)
 
 
-jira_test_csv_to_import_csv(issue_id='PBPM-25818')

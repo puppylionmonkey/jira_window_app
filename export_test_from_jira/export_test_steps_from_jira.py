@@ -1,10 +1,8 @@
 import asyncio
-import sys
 from pathlib import Path
 
 # 1. 必須使用 async_api
 from playwright.async_api import async_playwright
-from path_config import project_path
 
 
 # 2. 函式已經是 async def 沒錯
@@ -12,7 +10,8 @@ async def export_test_steps_from_jira(test_id_list, account, password):
     # 3. 必須使用 async_playwright()
     async with async_playwright() as p:
         browser = await p.chromium.launch(
-            executable_path="./_internal/ms-playwright/chromium-1200/chrome-win64/chrome.exe",
+            executable_path="C:/Users/chengan/AppData/Local/ms-playwright/chromium-1200/chrome-win64/chrome.exe",  # 本地
+            # executable_path="./_internal/ms-playwright/chromium-1200/chrome-win64/chrome.exe",
             headless=False
         )
         # browser = await p.chromium.launch(headless=False)
@@ -67,4 +66,3 @@ async def export_test_steps_from_jira(test_id_list, account, password):
 
         await browser.close()
 
-# asyncio.run(export_test_steps_from_jira(['PBPM-23566'], account, password))
